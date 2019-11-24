@@ -1,12 +1,17 @@
 class Game {
 
+    /**
+     * Constructor of the Game class
+     * Get the main tag
+     * Call showStartButton function
+     */
     constructor() {
         this.main = document.querySelector("main");
         this.showStartButton();
     }
 
     /**
-     * Show the start button
+     * Create and add the start button to the main tag
      */
     showStartButton() {
         let startButton = document.createElement("button");
