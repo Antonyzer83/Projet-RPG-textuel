@@ -7,6 +7,12 @@ class Game {
      */
     constructor() {
         this.main = document.querySelector("main");
+        this.data = [
+            "Bonjour, je m'appelle Zion, je serai votre guide tout au long de votre périple. Quel est votre prénom ?",
+            "C'est original : je ne connaissais pas ce prénom ! Vous devez sûrement venir du passée. Non ?"
+        ];
+        this.answers = [];
+        this.reply = 0;
         this.showStartButton();
     }
 
@@ -18,6 +24,8 @@ class Game {
         startButton.innerHTML = "Start";
         startButton.addEventListener("click", function () {
             game.deleteStartButton();
+            game.showReply();
+            game.showForm();
         });
         this.main.appendChild(startButton);
     }
@@ -30,4 +38,23 @@ class Game {
         startButton.remove();
     }
 
+    /**
+     * Create and add p tag with reply from narrator to main tag
+     */
+    showReply() {
+        let text = document.createElement("p");
+        text.innerHTML = this.data[this.reply];
+        this.reply++;
+        this.main.appendChild(text);
+    }
+
+    showForm() {
+        let form = document.createElement("form");
+        let input = document.createElement("input");
+        form.appendChild(input);
+        form.addEventListener("submit", function (evt) {
+            evt.preventDefault();
+        })
+        this.main.appendChild(form);
+    }
 }
