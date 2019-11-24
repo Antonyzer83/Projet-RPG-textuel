@@ -16,6 +16,18 @@ class Game {
     showStartButton() {
         let startButton = document.createElement("button");
         startButton.innerHTML = "Start";
+        startButton.addEventListener("click", function () {
+            game.deleteStartButton();
+        });
         this.main.appendChild(startButton);
     }
+
+    /**
+     * Remove the start button from the main tag
+     */
+    deleteStartButton() {
+        let startButton = document.getElementsByTagName("button")[0];
+        startButton.remove();
+    }
+
 }
