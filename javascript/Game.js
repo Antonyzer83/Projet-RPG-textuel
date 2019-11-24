@@ -21,6 +21,16 @@ class Game {
                 "Vous avez été invité à me rejoindre dans ce lieu atypique, nous sommes au sommet de la plus grande tour du monde terrien. Connaissez-vous la raison de cet invitation ?",
                 "Parfait ! Je vais tout de même vous rappeler l'importance de votre venue.",
                 "Je vais alors vous expliquer votre venue."
+            ],
+            [
+                "L'année 2465 est marquée par la découverte d'une forme de vie extraterrestre. On pourrait alors penser que c'est une bonne nouvelle, mais ce n'est pas le cas. En effet, cette découverte a été réalisée par chance : nos scientifiques, utilisant la quantique moderne, ont détecté des signaux étranges pour des humains ou des robots, comme moi. Après une traduction complexe et semée d'embuches, ces messages sont une déclaration de guerre à la Terre entière. Le saviez-vous ?",
+                "Vous êtes un menteur, car cette information est confidentielle. Vous n'êtes pas la personne qu'il nous faut. Adieu PRENOM.",
+                "C'est normal, nous l'avons appris hier soir, tard dans la nuit"
+            ],
+            [
+                "Vous devez alors surement vous demander pourquoi est ce que je vous raconte tout ça. Vous êtes un prodige ! Oui vous, nous avons recherché jusqu'à ce matin le profil unique et parfait, qui pourrait sauver la planète d'une telle catastrophe. Actuellement, nous n'avons pas de leader, ni de maître de guerre. Nous savons que vous avez réalisé de longues études en stratégie de guerre et de management ????. Vous avez fini chacune de vos années d'études, par d'excellentes notes et appréciations. Cela fait déjà un moment que nous avions un oeil sur vous, en cas d'attaque. Vous êtes la personne qu'il nous fait. Êtes-vous prêt à relever ce défi ?",
+                "Parfait, je sais que cette mission est faite pour vous. Allons rejoindre le centre d'entraînement pour corriger quelques détails, qui peuvent avoir un impact sur le combat qui approche.",
+                "Vous me décevez énormément. J'appelle de ce pas les gardes pour qu'ils vous fassent disparaître, vous possédez un secret d'état. Adieu PRENOM."
             ]
         ];
         this.answersCount = 0;
@@ -98,6 +108,12 @@ class Game {
         let buttons = document.getElementsByTagName("button");
         buttons[1].remove();
         buttons[0].remove();
+
+        this.answersCount++;
+        console.log(this.answersCount);
+        if (this.answersCount < 4) {
+            game.showQuestion();
+        }
     }
 
     /**
