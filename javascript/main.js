@@ -1,1 +1,2 @@
 let game = new Game();
+let hero;
