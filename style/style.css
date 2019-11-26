@@ -38,12 +38,12 @@ div.divAsks {
 }
 
 div.panel {
+    margin-top: 30vh;
     height: 40vh;
     text-align: center;
 }
 
 h2 {
-    margin-top: 20vh;
     font-size: 30px;
 }
 

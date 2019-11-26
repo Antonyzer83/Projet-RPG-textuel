@@ -22,6 +22,7 @@ class Game extends Base{
         startButton.innerHTML = "Start";
         startButton.addEventListener("click", function () {
             game.deleteStartButton();
+            game.showTitle();
             game.showReply();
             game.showForm();
         });
@@ -35,6 +36,16 @@ class Game extends Base{
     deleteStartButton() {
         let startButton = document.getElementsByTagName("button")[0];
         startButton.remove();
+    }
+
+    /**
+     * Show the introduction title
+     */
+    showTitle() {
+        let title = document.createElement("h2");
+        title.innerHTML = "Introduction";
+
+        this.main.appendChild(title);
     }
 
     /**
