@@ -40,15 +40,10 @@ class Game extends Base{
     /**
      * Create and add p tag with reply from narrator to main tag
      */
-    showReply(value = this.reply[this.replyCount], answerHero = false) {
+    showReply() {
         let text = document.createElement("p");
-        text.innerHTML = value;
-        if (answerHero) {
-            text.classList.add("heroAnswer");
-        }
-        if (value === this.reply[this.replyCount]) {
-            this.replyCount++;
-        }
+        text.innerHTML = this.reply[this.replyCount];
+        this.replyCount++;
         this.main.appendChild(text);
     }
 
@@ -63,8 +58,6 @@ class Game extends Base{
         form.addEventListener("submit", function (evt) {
             evt.preventDefault();
             if (game.checkForm(input.value)) {
-                // Show name of hero
-                game.showReply(input.value, true);
                 // Create hero
                 hero = new Hero(input.value);
                 // Remove form on submit

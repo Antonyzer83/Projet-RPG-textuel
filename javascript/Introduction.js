@@ -65,9 +65,12 @@ class Introduction extends Base {
         let button = document.createElement("button");
         button.innerHTML = (result ? "Oui" : "Non");
         button.addEventListener("click", function () {
+            // Show hero anwser
             introduction.showAnswerHero(result);
+            // Show intro answer
             introduction.showAnswerIntro(result);
-            scrollToBottom();
+            // Scroll to the bottom
+            introduction.scrollToBottom();
         });
         return button;
     }
@@ -90,6 +93,12 @@ class Introduction extends Base {
         this.checkCount();
     }
 
+    /**
+     * Show the anwser of the hero
+     *
+     * @param result
+     *              Yes or no
+     */
     showAnswerHero(result) {
         let answer = document.createElement("p");
         answer.innerHTML = result ? "Oui" : "Non";
@@ -106,8 +115,10 @@ class Introduction extends Base {
         buttons[0].remove();
     }
 
+    /**
+     * Check the process
+     */
     checkCount() {
-        console.log(this.count);
         if (this.count === 3 && this.answerCount === 0 || this.count === 4 && this.answerCount === 1) {
             console.log('perdu');
         } else if (this.count < 4) {

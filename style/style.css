@@ -1,3 +1,11 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: grey;
+    color: white;
+    scroll-behavior: smooth;
+}
+
 header {
     height: 15vh;
     text-align: center;
@@ -5,14 +13,24 @@ header {
 }
 
 main {
-    height: 80vh;
+    padding: 5vh 5%;
     font-family: 'Sulphur Point', sans-serif;
 }
 
 button.start {
     width: 20%;
-    height: 5vh;
+    height: 8vh;
     margin: 20vh 40%;
+    font-size: 20px;
+    background-color: white;
+    color: grey;
+    border: 0;
+    transition: ease 0.5s;
+}
+
+button.start:hover {
+    transform: scale(1.1);
+    transition: ease 0.5s;
 }
 
 button {

@@ -6,5 +6,6 @@ class Character {
         this.resistancePoints;
         this.force;
         this.exp;
+        this.main = document.querySelector("main");
     }
 }
