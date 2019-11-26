@@ -13,7 +13,7 @@ class Introduction extends Base {
         // Answers of narrator
         this.answers = [
             [
-                "Vous avez du faire un long voyage alors.",
+                "Vous avez du faire un long voyage alors !",
                 "Vos parents sont nostalgiques !"
             ],
             [
@@ -22,7 +22,7 @@ class Introduction extends Base {
             ],
             [
                 "Vous êtes un menteur, car cette information est confidentielle. Vous n'êtes pas la personne qu'il nous faut. Adieu.",
-                "C'est normal, nous l'avons appris hier soir, tard dans la nuit"
+                "C'est normal, nous l'avons appris hier soir, tard dans la nuit."
             ],
             [
                 "Parfait, je sais que cette mission est faite pour vous. Allons rejoindre le centre d'entraînement pour corriger quelques détails, qui peuvent avoir un impact sur le combat qui approche.",
@@ -65,7 +65,9 @@ class Introduction extends Base {
         let button = document.createElement("button");
         button.innerHTML = (result ? "Oui" : "Non");
         button.addEventListener("click", function () {
-            introduction.showAnswer(result);
+            introduction.showAnswerHero(result);
+            introduction.showAnswerIntro(result);
+            scrollToBottom();
         });
         return button;
     }
@@ -76,7 +78,7 @@ class Introduction extends Base {
      * @param result
      *              Yes or no
      */
-    showAnswer(result) {
+    showAnswerIntro(result) {
         let answer = document.createElement("p");
         answer.innerHTML = this.answers[this.count][result ? 0 : 1];
         this.main.appendChild(answer);
@@ -86,6 +88,13 @@ class Introduction extends Base {
         this.answerCount = result ? 0 : 1;
 
         this.checkCount();
+    }
+
+    showAnswerHero(result) {
+        let answer = document.createElement("p");
+        answer.innerHTML = result ? "Oui" : "Non";
+        answer.classList.add("heroAnswer");
+        this.main.appendChild(answer);
     }
 
     /**

@@ -1,0 +1,29 @@
+header {
+    height: 15vh;
+    text-align: center;
+    font-family: 'Bebas Neue', cursive;
+}
+
+main {
+    height: 80vh;
+    font-family: 'Sulphur Point', sans-serif;
+}
+
+button.start {
+    width: 20%;
+    height: 5vh;
+    margin: 20vh 40%;
+}
+
+button {
+    font-family: 'Sulphur Point', sans-serif;
+}
+
+p {
+    clear: right;
+}
+
+p.heroAnswer {
+    float: right;
+    clear: right;
+}

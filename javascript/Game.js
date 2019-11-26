@@ -25,6 +25,7 @@ class Game extends Base{
             game.showReply();
             game.showForm();
         });
+        startButton.classList.add("start");
         this.main.appendChild(startButton);
     }
 
@@ -39,9 +40,12 @@ class Game extends Base{
     /**
      * Create and add p tag with reply from narrator to main tag
      */
-    showReply(value = this.reply[this.replyCount]) {
+    showReply(value = this.reply[this.replyCount], answerHero = false) {
         let text = document.createElement("p");
         text.innerHTML = value;
+        if (answerHero) {
+            text.classList.add("heroAnswer");
+        }
         if (value === this.reply[this.replyCount]) {
             this.replyCount++;
         }
@@ -58,17 +62,31 @@ class Game extends Base{
         form.appendChild(input);
         form.addEventListener("submit", function (evt) {
             evt.preventDefault();
-            // Create hero
-            hero = new Hero(input.value);
-            // Remove form on submit
-            form.remove();
-            // Show name of hero
-            game.showReply(input.value);
-            // Begin introduction part
-            introduction = new Introduction();
+            if (game.checkForm(input.value)) {
+                // Show name of hero
+                game.showReply(input.value, true);
+                // Create hero
+                hero = new Hero(input.value);
+                // Remove form on submit
+                form.remove();
+                // Begin introduction part
+                introduction = new Introduction();
+            }
         });
         this.main.appendChild(form);
         // Add focus on input tag
         document.getElementsByTagName("input")[0].focus();
+    }
+
+    /**
+     * Check the value of input
+     *
+     * @param value
+     *              Input value
+     * @returns {boolean}
+     *              True or False
+     */
+    checkForm(value) {
+        return value === "" ? false : true;
     }
 }
