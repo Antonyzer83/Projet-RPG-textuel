@@ -5,6 +5,7 @@ class TrainingCenter extends Base {
 
         this.showPanel();
         this.showContext();
+        this.showContinuButton();
         this.scrollToBottom();
     }
 
@@ -35,5 +36,17 @@ class TrainingCenter extends Base {
 
         this.main.appendChild(context);
         this.main.appendChild(text);
+    }
+
+    /**
+     * Show the button to continu the story
+     */
+    showContinuButton() {
+        let button = document.createElement("button");
+        button.innerHTML = "Continuer";
+        button.addEventListener("click", function () {
+
+        });
+        this.main.appendChild(button);
     }
 }
