@@ -124,7 +124,7 @@ class Introduction extends Base {
      */
     checkCount() {
         if (this.count === 3 && this.answerCount === 0 || this.count === 4 && this.answerCount === 1) {
-            console.log('perdu');
+            this.youDie();
         } else if (this.count < 4) {
             this.showAsk();
         } else {
