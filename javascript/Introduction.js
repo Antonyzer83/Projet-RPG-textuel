@@ -129,6 +129,7 @@ class Introduction extends Base {
             this.showAsk();
         } else {
             console.log('fin introduction');
+            trainingCenter = new TrainingCenter();
         }
     }
 }

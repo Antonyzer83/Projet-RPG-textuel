@@ -37,6 +37,16 @@ div.divAsks {
     text-align: center;
 }
 
+div.panel {
+    height: 40vh;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 20vh;
+    font-size: 30px;
+}
+
 button.buttonChoice {
     height: 6vh;
     width: 10%;
@@ -72,4 +82,8 @@ p.heroAnswer {
     color: lightyellow;
     float: right;
     clear: right;
+}
+
+p.context {
+    font-style: italic;
 }
