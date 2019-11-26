@@ -45,12 +45,16 @@ class Introduction extends Base {
         let ask = document.createElement("p");
         ask.innerHTML = this.asks[this.count];
 
+        let div = document.createElement("div");
+        div.classList.add("divAsks");
+
         let firstAnswer = this.createButton(true);
         let secondAnswer = this.createButton(false);
 
         this.main.appendChild(ask);
-        this.main.appendChild(firstAnswer);
-        this.main.appendChild(secondAnswer);
+        div.appendChild(firstAnswer);
+        div.appendChild(secondAnswer);
+        this.main.appendChild(div);
     }
 
     /**
@@ -64,6 +68,7 @@ class Introduction extends Base {
     createButton(result) {
         let button = document.createElement("button");
         button.innerHTML = (result ? "Oui" : "Non");
+        button.classList.add("buttonChoice");
         button.addEventListener("click", function () {
             // Show hero anwser
             introduction.showAnswerHero(result);
@@ -110,9 +115,8 @@ class Introduction extends Base {
      * Remove the answer buttons
      */
     deleteButtons() {
-        let buttons = document.getElementsByTagName("button");
-        buttons[1].remove();
-        buttons[0].remove();
+        let buttonsDiv = document.getElementsByClassName("divAsks")[0];
+        buttonsDiv.remove();
     }
 
     /**

@@ -33,6 +33,33 @@ button.start:hover {
     transition: ease 0.5s;
 }
 
+div.divAsks {
+    text-align: center;
+}
+
+button.buttonChoice {
+    height: 6vh;
+    width: 10%;
+    font-size: 15px;
+    margin: 0 2%;
+    background-color: white;
+    color: grey;
+    border: 0;
+    transition: ease 0.5s;
+}
+
+button.buttonChoice:nth-child(1):hover {
+    background-color: green;
+    color: white;
+    transition: ease 0.5s;
+}
+
+button.buttonChoice:nth-child(2):hover {
+    background-color: red;
+    color: white;
+    transition: ease 0.5s;
+}
+
 button {
     font-family: 'Sulphur Point', sans-serif;
 }
@@ -42,6 +69,7 @@ p {
 }
 
 p.heroAnswer {
+    color: lightyellow;
     float: right;
     clear: right;
 }
