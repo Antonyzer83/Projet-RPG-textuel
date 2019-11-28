@@ -12,12 +12,32 @@ class TrainingCenter extends Base {
             "Très bien ! Vous êtes impressionant, passons au dernier.",
             "Parfait, vous avez parfaitement maitrisé ces trois combats. Vous êtes dignes de diriger notre armée pour détruire l'envahisseur extraterrestre. J'espère que je ne me trompe pas. Vous possédez ma confiance, faites en bon usage."
         ];
+        this.enemies = [
+            {
+                "name" : "Hexa",
+                "lifePoints" : 60,
+                "resistancePoints" : 5,
+                "force" : 7
+            },
+            {
+                "name" : "Phasme Mutant",
+                "lifePoints" : 80,
+                "resistancePoints" : 8,
+                "force" : 9
+            },
+            {
+                "name" : "Scary",
+                "lifePoints" : 100,
+                "resistancePoints" : 13,
+                "force" : 15
+            }
+        ];
         this.loseMessages = "Vous n'êtes pas le prodige qui nous était décrit, vous faîtes maintenant parti de notre armée, qui va se faire laminer lors du combat. Votre défaite signe la fin de notre civilisation. Adieu !";
         this.count = 0;
 
         this.showPanel();
         this.showContext();
-        this.showContinuButton();
+        this.showContinueButton();
         this.scrollToBottom();
     }
 
@@ -51,14 +71,31 @@ class TrainingCenter extends Base {
     }
 
     /**
-     * Show the button to continu the story
+     * Show the button to continue the story
      */
-    showContinuButton() {
+    showContinueButton() {
         let button = document.createElement("button");
         button.innerHTML = "Continuer";
         button.addEventListener("click", function () {
-            fight = new Fight();
+            trainingCenter.deleteContinueButton();
+            trainingCenter.beginFight();
         });
         this.main.appendChild(button);
+    }
+
+    /**
+     * Delete the button to continue the story
+     */
+    deleteContinueButton() {
+        document.getElementsByTagName("button")[0].remove();
+    }
+
+    /**
+     * Begin a fight
+     *
+     * Create a enemy and a fight
+     */
+    beginFight() {
+        new Enemy(this.enemies[this.count]);
     }
 }

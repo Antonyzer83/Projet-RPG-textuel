@@ -1,7 +1,7 @@
 class Hero extends Character {
 
     constructor(name) {
-        super(name, 100, 5, 15);
+        super(name, 100, 9, 15);
         this.weapons = [
             "Une épée avec des lasers",
             "Un sabre laser",

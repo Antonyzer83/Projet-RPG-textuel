@@ -6,6 +6,7 @@ class Fight {
         this.loseMessage = lose;
         this.hero = hero;
         this.enemy = enemy;
+        console.log("Fight");
     }
 
     showCharacteristics() {

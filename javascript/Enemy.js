@@ -1,6 +1,6 @@
 class Enemy extends Character{
 
-    constructor(name, lifePoints, resistancePoints, force) {
-        super(name, lifePoints, resistancePoints, force);
+    constructor(global) {
+        super(global["name"], global["lifePoints"], global["resistancePoints"], global["force"]);
     }
 }
