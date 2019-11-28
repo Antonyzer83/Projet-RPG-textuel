@@ -87,3 +87,8 @@ p.heroAnswer {
 p.context {
     font-style: italic;
 }
+
+input {
+    background-color: darkgrey;
+    color: white;
+}
