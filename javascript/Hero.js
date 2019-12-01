@@ -2,6 +2,7 @@ class Hero extends Character {
 
     constructor(name) {
         super(name, 100, 9, 15);
+        this.count = 0;
         this.weapons = [
             "Une épée avec des lasers",
             "Un sabre laser",
@@ -67,5 +68,35 @@ class Hero extends Character {
         name.innerHTML = "Je m'appelle " + this.name + ".";
         name.classList.add("heroAnswer");
         this.main.appendChild(name);
+    }
+
+    set addCount(number) {
+        this.count += number;
+    }
+
+    /**
+     * Show hero powers
+     */
+    showPowers() {
+        for (let i = 0; i < 3; i++) {
+            console.log(this.powers[this.count + i][0]);
+            let power = document.createElement("button");
+            power.classList.add("power");
+            power.innerHTML = this.powers[this.count + i][0];
+            power.addEventListener("click", function () {
+                hero.deletePowers();
+            });
+            this.main.appendChild(power);
+        }
+    }
+
+    /**
+     * Delete the hero powers
+     */
+    deletePowers() {
+        let buttons = document.getElementsByClassName("power");
+        for (let i = 2; i >= 0; i--) {
+            buttons[i].remove();
+        }
     }
 }

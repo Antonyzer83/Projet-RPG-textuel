@@ -6,6 +6,10 @@ html, body {
     scroll-behavior: smooth;
 }
 
+* {
+    animation: fadein 1s;
+}
+
 header {
     height: 15vh;
     text-align: center;
@@ -78,6 +82,10 @@ button.buttonChoice:nth-child(2):hover {
     transition: ease 0.5s;
 }
 
+button.power {
+    width: 10%;
+}
+
 button {
     font-family: 'Sulphur Point', sans-serif;
 }
@@ -99,4 +107,13 @@ p.context {
 input {
     background-color: darkgrey;
     color: white;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

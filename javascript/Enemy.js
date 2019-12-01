@@ -41,5 +41,19 @@ class Enemy extends Character{
                 "Reprise de points de vie"
             ]
         ];
+        this.chosenPower = null;
+    }
+
+    get getLifePoints() {
+        return this.lifePoints;
+    }
+
+    chosePower() {
+        let randomNumber = Math.floor(Math.random() * Math.floor(3)) + this.count;
+        this.chosenPower = this.powers[randomNumber];
+
+        let info = document.createElement("p");
+        info.innerHTML = this.name + " a choisi son attaque !";
+        this.main.appendChild(info);
     }
 }

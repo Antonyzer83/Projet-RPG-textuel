@@ -97,6 +97,6 @@ class TrainingCenter extends Base {
      */
     beginFight() {
         let enemy = new Enemy(this.enemies[this.count], 0);
-        let fight = new Fight(this.fightContext[this.count], this.victoryMessages[this.count], this.loseMessages[this.count], enemy);
+        fight = new Fight(this.fightContext[this.count], this.victoryMessages[this.count], this.loseMessages[this.count], enemy);
     }
 }
