@@ -8,8 +8,6 @@ class Fight extends Base{
         this.loseMessage = lose;
         this.enemy = enemy;
         this.showCharacteristics();
-        this.showStartButton();
-        //this.scrollToBottom();
     }
 
     /**
@@ -48,6 +46,7 @@ class Fight extends Base{
         this.main.appendChild(pContext);
         this.main.appendChild(warning);
         this.main.appendChild(globalDiv);
+        this.showStartButton();
         this.main.appendChild(fightDiv);
     }
 
@@ -154,6 +153,7 @@ class Fight extends Base{
         if (hero.lifePoints === 0) {
             message.innerHTML = this.loseMessage;
             this.main.appendChild(message);
+            this.youDie();
         } else if (this.enemy.lifePoints === 0) {
             message.innerHTML = this.victoryMessage;
             this.main.appendChild(message);

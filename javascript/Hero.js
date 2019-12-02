@@ -74,6 +74,7 @@ class Hero extends Character {
             ]
         ];
         this.chosenPower = null;
+        this.finalPower = [];
         this.showName();
     }
 
@@ -129,5 +130,42 @@ class Hero extends Character {
         let power = document.createElement("p");
         power.innerHTML = "Vous avez choisi " + this.chosenPower[0] + " !";
         document.getElementsByClassName("log")[this.count].appendChild(power);
+    }
+
+    showAllPowers() {
+        let title = document.createElement("h3");
+        title.innerHTML = "Choix des pouvoirs";
+        let intro = document.createElement("p");
+        intro.innerHTML = "Voilà, vous allez partir à la guerre, pour cela vous allez devoir choisir seulement trois pouvoirs !";
+
+
+        this.main.appendChild(title);
+        this.main.appendChild(intro);
+        for (let i = 0; i < 9; i++) {
+            let button = document.createElement("button");
+            button.innerHTML = this.powers[i][0];
+            button.addEventListener("click", function () {
+                button.remove();
+                hero.choseFinalPower(hero.powers[i]);
+            });
+            this.main.appendChild(button);
+        }
+    }
+
+    deleteFinalPowers() {
+        let button = document.getElementsByTagName("button");
+        for (let i = 5; i >= 0; i--) {
+            button[i].remove();
+        }
+    }
+
+    choseFinalPower(power) {
+        console.log(this.finalPower.length);
+        if (this.finalPower.length < 3) {
+            this.finalPower.push(power);
+            if (this.finalPower.length === 3) {
+                this.deleteFinalPowers();
+            }
+        }
     }
 }
