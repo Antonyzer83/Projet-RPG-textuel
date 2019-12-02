@@ -32,11 +32,15 @@ class Character {
         let powers = document.createElement("ul");
         for (let i = 0; i <  3; i++) {
             let powerTitle = document.createElement("li");
-            powerTitle.innerHTML = this.powers[this.count + i][0];
+            powerTitle.innerHTML = this.powers[this.count + i][0] + " :";
             let power = document.createElement("ul");
-            let description = document.createElement("li");
-            description.innerHTML = this.powers[this.count + i][1];
-            power.appendChild(description);
+            let positive = document.createElement("li");
+            positive.innerHTML = "Point positif : " + this.powers[this.count + i][1];
+            let negative = document.createElement("li");
+            negative.innerHTML = "Point négatif : " + this.powers[this.count + i][2];
+            power.appendChild(positive);
+            power.appendChild(negative);
+
             powers.appendChild(powerTitle);
             powers.appendChild(power);
         }

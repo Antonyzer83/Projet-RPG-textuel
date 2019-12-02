@@ -12,49 +12,68 @@ class Hero extends Character {
             [
                 "Lasers-violent",
                 "Attaque de lasers",
-                "Sans défense"
+                "Sans défense",
+                "Attaque",
+                15
             ],
             [
                 "Coupe",
                 "Coupure avec le bout de l'épée",
-                "Sans défense"
+                "Sans défense",
+                "Attaque",
+                20
             ],
             [
                 "Recharge",
                 "Les points de vie se regénèrent",
-                "Pas d'attaque possible"
+                "Pas d'attaque possible",
+                "Vie",
+                10
             ],
             [
                 "Croissance",
                 "Augmentation de la force",
-                "Pas d'attaque possible"
+                "Pas d'attaque possible",
+                "Force",
+                3
             ],
             [
                 "Sabre furtif",
                 "Attaque au sabre laser",
-                "Sans protection"
+                "Sans protection",
+                "Attaque",
+                25
             ],
             [
                 "Esquive",
                 "Esquive de l'attaque adverse",
-                "Pas d'attaque possible"
+                "Pas d'attaque possible",
+                "Esquive"
             ],
             [
                 "Attaque électrique",
                 "Attaque violente au niveau du torse à la vitesse de l'électricité",
-                "Sans défense"
+                "Sans défense",
+                "Attaque",
+                35
             ],
             [
                 "Lancer rapide",
                 "Envoi la lance à neutrons pour immobiliser l'adversaire",
-                "Faible attaque"
+                "Faible attaque",
+                "Attaque",
+                32
             ],
             [
                 "Regénération",
                 "Augmentation de la force et des points de vie",
-                "Pas d'attque possible"
+                "Pas d'attque possible",
+                "Vie/Force",
+                30,
+                5
             ]
         ];
+        this.chosenPower = null;
         this.showName();
     }
 
@@ -78,16 +97,21 @@ class Hero extends Character {
      * Show hero powers
      */
     showPowers() {
+        let powerDiv = document.createElement("div");
+        powerDiv.id = "powers";
         for (let i = 0; i < 3; i++) {
-            console.log(this.powers[this.count + i][0]);
             let power = document.createElement("button");
             power.classList.add("power");
             power.innerHTML = this.powers[this.count + i][0];
             power.addEventListener("click", function () {
                 hero.deletePowers();
+                hero.chosenPower = hero.powers[hero.count + i];
+                hero.showChosenPower();
+                fight.powersProcess();
             });
-            this.main.appendChild(power);
+            powerDiv.appendChild(power);
         }
+        this.main.appendChild(powerDiv);
     }
 
     /**
@@ -98,5 +122,11 @@ class Hero extends Character {
         for (let i = 2; i >= 0; i--) {
             buttons[i].remove();
         }
+    }
+
+    showChosenPower() {
+        let power = document.createElement("p");
+        power.innerHTML = "Vous avez choisi " + this.chosenPower[0] + " !";
+        document.getElementById("powers").appendChild(power);
     }
 }

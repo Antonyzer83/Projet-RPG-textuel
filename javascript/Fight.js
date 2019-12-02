@@ -69,4 +69,10 @@ class Fight extends Base{
         hero.showPowers();
         this.scrollToBottom();
     }
+
+    powersProcess() {
+        if (hero.chosenPower[3] === "Esquive" || this.enemy.chosenPower[3] === "Esquive") {
+
+        }
+    }
 }

@@ -55,6 +55,10 @@ div.enemy, div.hero {
     width: 50%;
 }
 
+div#powers {
+
+}
+
 h2 {
     font-size: 30px;
 }

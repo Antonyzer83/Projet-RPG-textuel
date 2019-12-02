@@ -6,39 +6,64 @@ class Enemy extends Character{
         this.powers = [
             [
                 "Aiguisage",
-                "Augmentation de la force"
+                "Augmentation de la force",
+                "Pas d'attaque possible",
+                "Force",
+                2
             ],
             [
                 "Combo-griffe",
-                "Ecorche le joueur à plusieurs reprises"
+                "Ecorche le joueur à plusieurs reprises",
+                "Sans défense",
+                "Attaque",
+                10
             ],
             [
                 "Morsure",
-                "Mors le joueur avec les dents pointues"
+                "Mors le joueur avec les dents pointues",
+                "Sans défense",
+                "Attaque",
+                20
             ],
             [
                 "Téléportation",
-                "Esquive l'attaque de l'adversaire"
+                "Esquive l'attaque de l'adversaire",
+                "Pas d'attaque possible",
+                "Esquive"
             ],
             [
                 "Coup-fourbe",
-                "Téléportation puis attaque"
+                "Téléportation puis attaque",
+                "Sans défense",
+                "Attaque",
+                22
             ],
             [
                 "Puissance",
-                "Amélioration de la force"
+                "Amélioration de la force",
+                "Pas d'attaque possible",
+                "Force",
+                4
             ],
             [
                 "Disparition",
-                "Esquive d'une attaque"
+                "Esquive d'une attaque",
+                "Pas d'attaque possible",
+                "Esquive"
             ],
             [
                 "Attaque surprise",
-                "Attaque violente et directe"
+                "Attaque violente et directe",
+                "Sans défense",
+                "Attaque",
+                34
             ],
             [
                 "Résurection",
-                "Reprise de points de vie"
+                "Reprise de points de vie",
+                "Pas d'attaque possible",
+                "Vie",
+                21
             ]
         ];
         this.chosenPower = null;
