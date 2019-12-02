@@ -59,7 +59,7 @@ class Enemy extends Character{
                 34
             ],
             [
-                "Résurection",
+                "Resurection",
                 "Reprise de points de vie",
                 "Pas d'attaque possible",
                 "Vie",
@@ -74,12 +74,12 @@ class Enemy extends Character{
     }
 
     chosePower() {
-        let randomNumber = Math.floor(Math.random() * Math.floor(3)) + this.count;
+        let randomNumber = Math.floor(Math.random() * Math.floor(3)) + this.count * 3;
         this.chosenPower = this.powers[randomNumber];
 
         let info = document.createElement("p");
         info.innerHTML = this.name + " a choisi son attaque !";
         console.log(this.chosenPower);
-        document.getElementById("log").appendChild(info);
+        document.getElementsByClassName("log")[this.count].appendChild(info);
     }
 }

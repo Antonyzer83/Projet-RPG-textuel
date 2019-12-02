@@ -100,15 +100,15 @@ class Hero extends Character {
         for (let i = 0; i < 3; i++) {
             let power = document.createElement("button");
             power.classList.add("power");
-            power.innerHTML = this.powers[this.count + i][0];
+            power.innerHTML = this.powers[3 * this.count + i][0];
             power.addEventListener("click", function () {
                 hero.deletePowers();
-                hero.chosenPower = hero.powers[hero.count + i];
+                hero.chosenPower = hero.powers[3 * hero.count + i];
                 console.log(hero.chosenPower);
                 hero.showChosenPower();
                 fight.powersProcess();
             });
-            document.getElementById("powers").appendChild(power);
+            document.getElementsByClassName("powers")[this.count].appendChild(power);
         }
     }
 
@@ -125,6 +125,6 @@ class Hero extends Character {
     showChosenPower() {
         let power = document.createElement("p");
         power.innerHTML = "Vous avez choisi " + this.chosenPower[0] + " !";
-        document.getElementById("log").appendChild(power);
+        document.getElementsByClassName("log")[this.count].appendChild(power);
     }
 }

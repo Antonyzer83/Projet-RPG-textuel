@@ -32,12 +32,12 @@ class Character {
         let powers = document.createElement("ul");
         for (let i = 0; i <  3; i++) {
             let powerTitle = document.createElement("li");
-            powerTitle.innerHTML = this.powers[this.count + i][0] + " :";
+            powerTitle.innerHTML = this.powers[3 * this.count + i][0] + " :";
             let power = document.createElement("ul");
             let positive = document.createElement("li");
-            positive.innerHTML = "Point positif : " + this.powers[this.count + i][1];
+            positive.innerHTML = "Point positif : " + this.powers[3 * this.count + i][1];
             let negative = document.createElement("li");
-            negative.innerHTML = "Point négatif : " + this.powers[this.count + i][2];
+            negative.innerHTML = "Point négatif : " + this.powers[3 * this.count + i][2];
             power.appendChild(positive);
             power.appendChild(negative);
 
@@ -57,7 +57,11 @@ class Character {
     }
 
     set loseLifePoints(points) {
-        this.lifePoints -= points - this.resistancePoints;
+        if (this.lifePoints - points + this.resistancePoints >= 0) {
+            this.lifePoints -= points - this.resistancePoints;
+        } else {
+            this.lifePoints = 0;
+        }
     }
 
     set winLifePoints(points) {
