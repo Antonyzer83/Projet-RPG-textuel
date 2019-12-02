@@ -51,12 +51,17 @@ div.global {
     display: flex;
 }
 
-div.enemy, div.hero {
+div.enemy, div.hero, div#powers, div#log {
     width: 50%;
 }
 
-div#powers {
+div#fight {
+    display: flex;
+}
 
+div#log {
+    height: 20vh;
+    overflow: auto;
 }
 
 h2 {

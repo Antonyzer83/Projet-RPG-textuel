@@ -79,6 +79,7 @@ class Enemy extends Character{
 
         let info = document.createElement("p");
         info.innerHTML = this.name + " a choisi son attaque !";
-        this.main.appendChild(info);
+        console.log(this.chosenPower);
+        document.getElementById("log").appendChild(info);
     }
 }

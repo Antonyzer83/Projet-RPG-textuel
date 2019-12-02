@@ -66,9 +66,9 @@ class Hero extends Character {
             ],
             [
                 "Regénération",
-                "Augmentation de la force et des points de vie",
+                "Augmentation des points de vie",
                 "Pas d'attque possible",
-                "Vie/Force",
+                "Vie",
                 30,
                 5
             ]
@@ -97,8 +97,6 @@ class Hero extends Character {
      * Show hero powers
      */
     showPowers() {
-        let powerDiv = document.createElement("div");
-        powerDiv.id = "powers";
         for (let i = 0; i < 3; i++) {
             let power = document.createElement("button");
             power.classList.add("power");
@@ -106,12 +104,12 @@ class Hero extends Character {
             power.addEventListener("click", function () {
                 hero.deletePowers();
                 hero.chosenPower = hero.powers[hero.count + i];
+                console.log(hero.chosenPower);
                 hero.showChosenPower();
                 fight.powersProcess();
             });
-            powerDiv.appendChild(power);
+            document.getElementById("powers").appendChild(power);
         }
-        this.main.appendChild(powerDiv);
     }
 
     /**
@@ -127,6 +125,6 @@ class Hero extends Character {
     showChosenPower() {
         let power = document.createElement("p");
         power.innerHTML = "Vous avez choisi " + this.chosenPower[0] + " !";
-        document.getElementById("powers").appendChild(power);
+        document.getElementById("log").appendChild(power);
     }
 }

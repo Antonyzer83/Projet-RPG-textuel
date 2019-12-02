@@ -55,4 +55,16 @@ class Character {
 
         return person;
     }
+
+    set loseLifePoints(points) {
+        this.lifePoints -= points - this.resistancePoints;
+    }
+
+    set winLifePoints(points) {
+        this.lifePoints += points;
+    }
+
+    set winForce(points) {
+        this.force += points;
+    }
 }
