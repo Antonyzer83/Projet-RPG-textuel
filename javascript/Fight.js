@@ -9,7 +9,7 @@ class Fight extends Base{
         this.enemy = enemy;
         this.showCharacteristics();
         this.showStartButton();
-        this.scrollToBottom();
+        //this.scrollToBottom();
     }
 
     /**
@@ -51,6 +51,9 @@ class Fight extends Base{
         this.main.appendChild(fightDiv);
     }
 
+    /**
+     * Update the characteristics both players
+     */
     updateCharacteristics() {
         let enemy = document.getElementsByClassName("enemy")[hero.count];
         enemy.innerHTML = "";
@@ -91,6 +94,9 @@ class Fight extends Base{
         this.scrollToBottom();
     }
 
+    /**
+     * After click on a power button
+     */
     powersProcess() {
         let log = document.getElementsByClassName("log")[hero.count];
         let enemyAnswer = document.createElement("p");
@@ -129,8 +135,7 @@ class Fight extends Base{
         log.appendChild(enemyAnswer);
         log.appendChild(heroAnswer);
 
-        var objDiv = document.getElementsByClassName("log")[hero.count];
-        objDiv.scrollTop = objDiv.scrollHeight;
+        this.scrollToBottomDiv();
 
         this.updateCharacteristics();
         if (this.enemy.lifePoints > 0 && hero.lifePoints > 0) {
@@ -141,6 +146,9 @@ class Fight extends Base{
         }
     }
 
+    /**
+     * Process at the end of the fight
+     */
     finishFight() {
         let message = document.createElement("p");
         if (hero.lifePoints === 0) {
@@ -154,5 +162,13 @@ class Fight extends Base{
             trainingCenter.count++;
             trainingCenter.beginFight();
         }
+    }
+
+    /**
+     * Scroll to the bottom of the log div
+     */
+    scrollToBottomDiv() {
+        let objDiv = document.getElementsByClassName("log")[hero.count];
+        objDiv.scrollTop = objDiv.scrollHeight;
     }
 }

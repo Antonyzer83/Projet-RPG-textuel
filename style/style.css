@@ -55,6 +55,11 @@ div.enemy, div.hero, div.powers, div.log {
     width: 50%;
 }
 
+div.enemy {
+    background-color: white;
+    color: grey;
+}
+
 div.fight {
     display: flex;
 }
@@ -66,6 +71,27 @@ div.log {
 
 h2 {
     font-size: 30px;
+}
+
+button {
+    width: 30%;
+    height: 8vh;
+    font-family: 'Sulphur Point', sans-serif;
+    background-color: darkgrey;
+    color: white;
+    font-size: 17px;
+    transition: ease 1s;
+    border: 0;
+}
+
+button:hover {
+    color: darkgrey;
+    background-color: white;
+    transition: ease 1s;
+}
+
+button.powers {
+    margin: 4vh 1%;
 }
 
 button.buttonChoice {
@@ -89,14 +115,6 @@ button.buttonChoice:nth-child(2):hover {
     background-color: red;
     color: white;
     transition: ease 0.5s;
-}
-
-button.power {
-    width: 10%;
-}
-
-button {
-    font-family: 'Sulphur Point', sans-serif;
 }
 
 p {

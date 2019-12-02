@@ -122,6 +122,9 @@ class Hero extends Character {
         }
     }
 
+    /**
+     * Show the chosen power
+     */
     showChosenPower() {
         let power = document.createElement("p");
         power.innerHTML = "Vous avez choisi " + this.chosenPower[0] + " !";
