@@ -55,9 +55,21 @@ div.enemy, div.hero, div.powers, div.log {
     width: 50%;
 }
 
+div.powers {
+    margin-top: 2vh;
+}
+
 div.enemy {
-    background-color: white;
-    color: grey;
+    background: linear-gradient(to right bottom, #2f3441 50%, #212531 50%);
+    color: white;
+}
+
+ul {
+    list-style-type: cjk-ideographic;
+}
+
+div.hero {
+    background: linear-gradient(to left bottom, #f85032 50%, #e73827 50%);
 }
 
 div.fight {
@@ -90,7 +102,7 @@ button:hover {
     transition: ease 1s;
 }
 
-button.powers {
+button.power {
     margin: 4vh 1%;
 }
 
@@ -103,6 +115,10 @@ button.buttonChoice {
     color: grey;
     border: 0;
     transition: ease 0.5s;
+}
+
+button.continuer {
+    margin-top: 2vh;
 }
 
 button.buttonChoice:nth-child(1):hover {
@@ -134,6 +150,8 @@ p.context {
 input {
     background-color: darkgrey;
     color: white;
+    border: 2px solid grey;
+    height: 3vh;
 }
 
 @keyframes fadein {

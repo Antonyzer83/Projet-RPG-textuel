@@ -69,6 +69,7 @@ class Fight extends Base{
     showStartButton() {
         let button = document.createElement("button");
         button.innerHTML = "Commencer le test";
+        button.classList.add("continuer");
         button.addEventListener("click", function () {
             fight.deleteStartButton();
             fight.beginFight();
@@ -141,7 +142,6 @@ class Fight extends Base{
             this.beginFight();
         } else {
             this.finishFight();
-            console.log("combat terminé");
         }
     }
 

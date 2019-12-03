@@ -132,6 +132,9 @@ class Hero extends Character {
         document.getElementsByClassName("log")[this.count].appendChild(power);
     }
 
+    /**
+     * Show all the powers after all fights
+     */
     showAllPowers() {
         let title = document.createElement("h3");
         title.innerHTML = "Choix des pouvoirs";
@@ -152,6 +155,9 @@ class Hero extends Character {
         }
     }
 
+    /**
+     * Delete remaining powers after choice
+     */
     deleteFinalPowers() {
         let button = document.getElementsByTagName("button");
         for (let i = 5; i >= 0; i--) {
@@ -159,12 +165,19 @@ class Hero extends Character {
         }
     }
 
+    /**
+     * Choose a power fo the war
+     *
+     * @param power
+     *              Chosen power
+     */
     choseFinalPower(power) {
         console.log(this.finalPower.length);
         if (this.finalPower.length < 3) {
             this.finalPower.push(power);
             if (this.finalPower.length === 3) {
                 this.deleteFinalPowers();
+                war = new War();
             }
         }
     }
