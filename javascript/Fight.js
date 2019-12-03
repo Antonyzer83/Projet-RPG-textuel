@@ -1,7 +1,8 @@
 class Fight extends Base{
 
-    constructor(context, victory, lose, enemy) {
+    constructor(mode, context, victory, lose, enemy) {
         super();
+        this.mode = mode;
         this.context = context;
         this.warning = "Pour le combat, vous choisirez une option entre trois possibilités, chaque option a un avantage et un incovénient. A vous de réaliser le bon choix en fonction de vos fonctionnalités.";
         this.victoryMessage = victory;
@@ -27,6 +28,23 @@ class Fight extends Base{
         let heroDiv = document.createElement("div");
         heroDiv.classList.add("hero");
 
+        enemyDiv.appendChild(this.enemy.showCharacter());
+        heroDiv.appendChild(hero.showCharacter());
+
+        globalDiv.appendChild(enemyDiv);
+        globalDiv.appendChild(heroDiv);
+
+        this.main.appendChild(pContext);
+        this.main.appendChild(warning);
+        this.scrollToBottom();
+        this.main.appendChild(globalDiv);
+        this.showStartButton();
+    }
+
+    /**
+     * Show the fight part with log of both and hero powers
+     */
+    showFightLogPower() {
         let fightDiv = document.createElement("div");
         fightDiv.classList.add("fight");
         let logDiv = document.createElement("div");
@@ -34,19 +52,9 @@ class Fight extends Base{
         let powerDiv = document.createElement("div");
         powerDiv.classList.add("powers");
 
-        enemyDiv.appendChild(this.enemy.showCharacter());
-        heroDiv.appendChild(hero.showCharacter());
-
-        globalDiv.appendChild(enemyDiv);
-        globalDiv.appendChild(heroDiv);
-
         fightDiv.appendChild(logDiv);
         fightDiv.appendChild(powerDiv);
 
-        this.main.appendChild(pContext);
-        this.main.appendChild(warning);
-        this.main.appendChild(globalDiv);
-        this.showStartButton();
         this.main.appendChild(fightDiv);
     }
 
@@ -72,6 +80,7 @@ class Fight extends Base{
         button.classList.add("continuer");
         button.addEventListener("click", function () {
             fight.deleteStartButton();
+            fight.showFightLogPower();
             fight.beginFight();
         });
         this.main.appendChild(button);
@@ -157,10 +166,14 @@ class Fight extends Base{
         } else if (this.enemy.lifePoints === 0) {
             message.innerHTML = this.victoryMessage;
             this.main.appendChild(message);
-            hero.lifePoints = 100;
-            hero.count++;
-            trainingCenter.count++;
-            trainingCenter.beginFight();
+            if (this.mode) {
+                war.winWar();
+            } else {
+                hero.lifePoints = 100;
+                hero.count++;
+                trainingCenter.count++;
+                trainingCenter.beginFight();
+            }
         }
     }
 

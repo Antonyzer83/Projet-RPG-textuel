@@ -14,17 +14,26 @@ class War extends Base {
         this.choices = [
             "Chaque vaisseau prend une décision",
             "Suivre le plan initial",
-            "Suivre le plan de secours"
+            "Suivre le plan de secours",
+            "Vivre en acceptant la défaite et la destruction de la terre",
+            "Refuser l'offre"
         ];
         this.results = [
             "Le temps perdu permet à l'armée adverse de détruire la quasi-totalité de mon armée. Je suis le dernier survivant de mon armée. L'Empereur Grunzek me propose alors un marché",
             "L'exécution du plan initial est un échec. Je suis le dernier espoir de l'humanité face à l'invasion extraterrestre.",
-            "Cette stratégie était vouée à l'échec. La totalité de l'armée est exterminée, ainsi que ton vaisseau spatiale. L'invasion extraterrestre ne fait que commencer. L'humanité est vouée à disparaître..."
+            "Cette stratégie était vouée à l'échec. La totalité de l'armée est exterminée, ainsi que ton vaisseau spatiale. L'invasion extraterrestre ne fait que commencer. L'humanité est vouée à disparaître...",
+            "L'Empereur Grunzek m'a menti, il ordonne la peine de mort à mon égard !",
+            "En refusant le marché, je n'ai pas d'autre choix que d'affronter l'Empereur Grunzek !"
         ];
+        this.enemy = {
+            "name" : "Empereur Grunzek",
+            "lifePoints" : 150,
+            "resistancePoints" : 10,
+            "force" : 20
+        };
         this.showPanel();
-        this.scrollToBottom();
         this.showContextHistory();
-        this.showChoice();
+        this.showChoice(0, 3);
     }
 
     /**
@@ -57,6 +66,7 @@ class War extends Base {
                 history.innerHTML = this.histories[i];
                 if (i === 1) {
                     history.classList.add("heroAnswer");
+                    this.scrollToBottom();
                 }
                 this.main.appendChild(history);
             }
@@ -66,10 +76,10 @@ class War extends Base {
     /**
      * Show the first choices to lead the army
      */
-    showChoice() {
+    showChoice(begin, limit) {
         let choiceDiv = document.createElement("div");
         choiceDiv.classList.add("divAsks");
-        for (let i = 0; i < 3; i++) {
+        for (let i = begin; i < limit; i++) {
             let choice = document.createElement("button");
             choice.classList.add("choice");
             choice.innerHTML = this.choices[i];
@@ -86,7 +96,7 @@ class War extends Base {
      * Delete the div which contains the different choices
      */
     deleteChoices() {
-        document.getElementsByClassName("divAsks").remove();
+        document.getElementsByClassName("divAsks")[0].remove();
     }
 
     /**
@@ -100,5 +110,45 @@ class War extends Base {
         result.classList.add("heroAnswer");
         result.innerHTML = this.results[count];
         this.main.appendChild(result);
+
+        switch (count) {
+            case 0:
+                this.showChoice(3, 5);
+                break;
+            case 1:
+                this.finalFight();
+                break;
+            case 2:
+            case 3:
+                this.youDie();
+                break;
+            case 4:
+                this.finalFight();
+                break;
+        }
+    }
+
+    /**
+     * Final against the Empire Grunzek
+     */
+    finalFight() {
+        let enemy = new Enemy(this.enemy, 3);
+        fight = new Fight(true, null, "L'Empereur étant mort, son armée décide de rebrousser chemin et d'abandonner le champ de bataille spatiale.", "Vous étiez le dernier espoir de notre planète ! Adieu !", enemy);
+    }
+
+    /**
+     * The hero win the fight against the Empire
+     */
+    winWar() {
+        let victory = document.createElement("p");
+        victory.innerHTML = "Vous avez sauvé la Terre ! Vous êtes notre héros !";
+        this.main.appendChild(victory);
+
+        let button = document.createElement("button");
+        button.innerHTML = "Rejouer";
+        button.addEventListener("click", function () {
+            document.location.reload();
+        });
+        this.main.appendChild(button);
     }
 }

@@ -52,7 +52,7 @@ class Hero extends Character {
             ],
             [
                 "Attaque électrique",
-                "Attaque violente au niveau du torse à la vitesse de l'électricité",
+                "Attaque violente au niveau du torse",
                 "Sans défense",
                 "Attaque",
                 35
@@ -146,6 +146,7 @@ class Hero extends Character {
         for (let i = 0; i < 9; i++) {
             let button = document.createElement("button");
             button.innerHTML = this.powers[i][0];
+            button.classList.add("power");
             button.addEventListener("click", function () {
                 button.remove();
                 hero.choseFinalPower(hero.powers[i]);
@@ -173,6 +174,7 @@ class Hero extends Character {
     choseFinalPower(power) {
         if (this.finalPower.length < 3) {
             this.finalPower.push(power);
+            this.powers.push(power);
             if (this.finalPower.length === 3) {
                 this.deleteFinalPowers();
                 war = new War();

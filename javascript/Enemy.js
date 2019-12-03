@@ -64,13 +64,29 @@ class Enemy extends Character{
                 "Pas d'attaque possible",
                 "Vie",
                 21
+            ],
+            [
+                "Destruction impériale",
+                "Attaque puissante",
+                "Sans défense",
+                "Attaque",
+                30
+            ],
+            [
+                "Bouclier protecteur",
+                "Défense efficace",
+                "Pas d'attaque possible",
+                "Esquive"
+            ],
+            [
+                "Résurection infernale",
+                "Récupération de la totalité des points de vie",
+                "Pas d'attaque possible",
+                "Vie",
+                150
             ]
         ];
         this.chosenPower = null;
-    }
-
-    get getLifePoints() {
-        return this.lifePoints;
     }
 
     chosePower() {

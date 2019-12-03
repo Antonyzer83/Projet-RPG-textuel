@@ -98,9 +98,10 @@ class TrainingCenter extends Base {
     beginFight() {
         if (this.count < 3) {
             let enemy = new Enemy(this.enemies[this.count], this.count);
-            fight = new Fight(this.fightContext[this.count], this.victoryMessages[this.count], this.loseMessages, enemy);
+            fight = new Fight(false, this.fightContext[this.count], this.victoryMessages[this.count], this.loseMessages, enemy);
         } else {
             hero.showAllPowers();
+            this.scrollToBottom();
         }
     }
 }

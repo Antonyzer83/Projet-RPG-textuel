@@ -65,7 +65,7 @@ class Character {
     }
 
     set winLifePoints(points) {
-        this.lifePoints += points;
+        this.lifePoints += (points === 150) ? points - this.lifePoints : points;
     }
 
     set winForce(points) {
