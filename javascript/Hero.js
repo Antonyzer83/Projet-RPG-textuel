@@ -105,7 +105,6 @@ class Hero extends Character {
             power.addEventListener("click", function () {
                 hero.deletePowers();
                 hero.chosenPower = hero.powers[3 * hero.count + i];
-                console.log(hero.chosenPower);
                 hero.showChosenPower();
                 fight.powersProcess();
             });
@@ -172,7 +171,6 @@ class Hero extends Character {
      *              Chosen power
      */
     choseFinalPower(power) {
-        console.log(this.finalPower.length);
         if (this.finalPower.length < 3) {
             this.finalPower.push(power);
             if (this.finalPower.length === 3) {

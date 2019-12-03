@@ -128,7 +128,6 @@ class Introduction extends Base {
         } else if (this.count < 4) {
             this.showAsk();
         } else {
-            console.log('fin introduction');
             trainingCenter = new TrainingCenter();
         }
     }
