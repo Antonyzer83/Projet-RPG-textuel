@@ -1,5 +1,16 @@
 class Character {
 
+    /**
+     * Initialize character's properties
+     * @param name
+     *              Name
+     * @param lifePoints
+     *              Life points
+     * @param resistancePoints
+     *              Resistance points
+     * @param force
+     *              Force
+     */
     constructor(name, lifePoints, resistancePoints, force) {
         this.name = name;
         this.lifePoints = lifePoints;
@@ -56,6 +67,12 @@ class Character {
         return person;
     }
 
+    /**
+     * Set the lost points
+     *
+     * @param points
+     *              Attack points
+     */
     set loseLifePoints(points) {
         if (this.lifePoints - points + this.resistancePoints >= 0) {
             this.lifePoints -= points - this.resistancePoints;
@@ -64,10 +81,22 @@ class Character {
         }
     }
 
+    /**
+     * Set the wan points
+     *
+     * @param points
+     *              Defense points
+     */
     set winLifePoints(points) {
         this.lifePoints += (points === 150) ? points - this.lifePoints : points;
     }
 
+    /**
+     * Set the force
+     *
+     * @param points
+     *              Force
+     */
     set winForce(points) {
         this.force += points;
     }
