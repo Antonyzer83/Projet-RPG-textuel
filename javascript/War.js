@@ -37,7 +37,7 @@ class War extends Base {
     }
 
     /**
-     * Show the panel bewteen the training center and the war
+     * Show the panel between the training center and the war
      */
     showPanel() {
         let panel = document.createElement("div");
@@ -145,9 +145,9 @@ class War extends Base {
         this.main.appendChild(victory);
 
         let button = document.createElement("button");
-        button.innerHTML = "Rejouer";
+        button.innerHTML = "Continuer";
         button.addEventListener("click", function () {
-            document.location.reload();
+            victory = new Victory();
         });
         this.main.appendChild(button);
     }

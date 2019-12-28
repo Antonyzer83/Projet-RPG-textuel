@@ -4,3 +4,4 @@ let introduction;
 let trainingCenter;
 let fight;
 let war;
+let victory;
