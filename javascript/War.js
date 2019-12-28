@@ -140,9 +140,9 @@ class War extends Base {
      * The hero win the fight against the Empire
      */
     winWar() {
-        let victory = document.createElement("p");
-        victory.innerHTML = "Vous avez sauvé la Terre ! Vous êtes notre héros !";
-        this.main.appendChild(victory);
+        let victoryText = document.createElement("p");
+        victoryText.innerHTML = "Vous avez sauvé la Terre ! Vous êtes notre héros !";
+        this.main.appendChild(victoryText);
 
         let button = document.createElement("button");
         button.innerHTML = "Continuer";

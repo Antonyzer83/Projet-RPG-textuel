@@ -5,7 +5,7 @@ class Victory extends Base {
         this.choices = [
             "Rester dans l'anonymat",
             "Prendre le pouvoir",
-            "Devenir Général Mondial",
+            "Devenir Général",
             "Devenir Paysan"
         ];
         this.results = [
@@ -18,6 +18,7 @@ class Victory extends Base {
         this.showPanel();
         this.showContext();
         this.showChoices(0, 2);
+        this.scrollToBottom();
     }
 
     /**
@@ -89,7 +90,7 @@ class Victory extends Base {
 
         switch (count) {
             case 0:
-                this.showChoices(3, 5);
+                this.showChoices(2, 4);
                 break;
             case 1:
             case 2:
