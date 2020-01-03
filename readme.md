@@ -15,6 +15,8 @@ Pour le choix des attaques, je vous recommande de choisir :
 - Regénération,
 - Croissance.
 
+Lors de la guerre, je vous conseille de choisir la réponse suivante, pour directement accéder au combat final : Suivre le plan initial.
+
 Lors du combat final, je vous recommande d'alterner entre Régénération et croissance : cette méthode vous permet de rester en vie, mais aussi de gagner en force et de réaliser à la suite une attaque efficace.
 
 Lors de la victoire, je vous recommande de choisir les options suivantes :
