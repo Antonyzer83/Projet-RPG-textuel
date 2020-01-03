@@ -2,7 +2,7 @@ class Introduction extends Base {
 
     constructor() {
         super();
-        // Questions of narrator
+        // Narrator's asks
         this.asks = [
             "C'est original : je ne connaissais pas ce prénom ! Vous devez sûrement venir du passée. Non ?",
             "Vous avez été invité à me rejoindre dans ce lieu atypique, nous sommes au sommet de la plus grande tour du monde terrien. Connaissez-vous la raison de cet invitation ?",
@@ -10,7 +10,7 @@ class Introduction extends Base {
             "Vous devez alors surement vous demander pourquoi est ce que je vous raconte tout ça. Vous êtes un prodige ! Oui vous, nous avons recherché jusqu'à ce matin le profil unique et parfait, qui pourrait sauver la planète d'une telle catastrophe. Actuellement, nous n'avons pas de leader, ni de maître de guerre. Nous savons que vous avez réalisé de longues études en stratégie de guerre et de management. Vous avez fini chacune de vos années d'études, par d'excellentes notes et appréciations. Cela fait déjà un moment que nous avions un oeil sur vous, en cas d'attaque. Vous êtes la personne qu'il nous fait. Êtes-vous prêt à relever ce défi ?",
         ];
 
-        // Answers of narrator
+        // Narrator's answers
         this.answers = [
             [
                 "Vous avez du faire un long voyage alors !",
@@ -91,7 +91,7 @@ class Introduction extends Base {
         answer.innerHTML = this.answers[this.count][result ? 0 : 1];
         this.main.appendChild(answer);
 
-        this.deleteButtons();
+        this.deleteChoices();
         this.count++;
         this.answerCount = result ? 0 : 1;
 
@@ -109,14 +109,6 @@ class Introduction extends Base {
         answer.innerHTML = result ? "Oui" : "Non";
         answer.classList.add("heroAnswer");
         this.main.appendChild(answer);
-    }
-
-    /**
-     * Remove the answer buttons
-     */
-    deleteButtons() {
-        let buttonsDiv = document.getElementsByClassName("divAsks")[0];
-        buttonsDiv.remove();
     }
 
     /**

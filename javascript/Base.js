@@ -12,6 +12,13 @@ class Base {
     }
 
     /**
+     * Delete the div which contains the different choices
+     */
+    deleteChoices() {
+        document.getElementsByClassName("divAsks")[0].remove();
+    }
+
+    /**
      * The player loses
      */
     youDie() {

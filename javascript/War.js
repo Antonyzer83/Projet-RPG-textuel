@@ -93,13 +93,6 @@ class War extends Base {
     }
 
     /**
-     * Delete the div which contains the different choices
-     */
-    deleteChoices() {
-        document.getElementsByClassName("divAsks")[0].remove();
-    }
-
-    /**
      * Process after click on a choice
      *
      * @param count
