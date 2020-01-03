@@ -26,6 +26,10 @@ Lors de la victoire, je vous recommande de choisir les options suivantes :
 
 Si vous suivez mes conseils, vous aurez de fortes chances de gagner ! Bonne chance !
 
+## Enbranchements
+
+![Embranchements](schema_embranchement.png)
+
 ## Consignes 
 
 Créer un __mini jeu style RPG textuel__ dans votre page web. Vous devez utiliser tout ce qu'on à
